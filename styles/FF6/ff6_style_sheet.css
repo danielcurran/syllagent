@@ -82,3 +82,63 @@ h1,h2,h3,h4,h5{
     padding: 5px;
     margin: -5px;
   }
+/* Coming Soon Page */
+.coming-soon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+.coming-soon-header {
+  margin-bottom: 60px;
+}
+
+.coming-soon-header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  color: #edd758;
+  letter-spacing: 2px;
+}
+
+.coming-soon-tagline {
+  font-size: 1.4rem;
+  color: #ecedee;
+  max-width: 600px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.coming-soon-banner {
+  border: 3px solid #edd758;
+  padding: 40px 60px;
+  background: linear-gradient(to bottom, #6c70a6, #040136);
+}
+
+.coming-soon-text {
+  font-size: 2.5rem;
+  color: #edd758;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+  .coming-soon-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .coming-soon-tagline {
+    font-size: 1.1rem;
+  }
+
+  .coming-soon-banner {
+    padding: 30px 40px;
+  }
+
+  .coming-soon-text {
+    font-size: 1.8rem;
+  }
+}
