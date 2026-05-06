@@ -1,0 +1,95 @@
+/* --- Accordion --- */
+.ff-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.ff-accordion-item {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ff-accordion-header {
+  width: 100%;
+  padding: 16px 20px;
+  /* Larger touch target (approx 50px+ height) */
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-bottom: 1px solid transparent;
+  color: inherit;
+  text-align: left;
+  font-family: inherit;
+  font-size: 1.05rem;
+  /* Slightly larger text */
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+  min-height: 48px;
+  /* Enforce touch target size */
+  word-break: break-word;
+}
+
+.ff-accordion-header:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ff-accordion-header:focus {
+  outline: 2px dashed rgba(255, 255, 255, 0.5);
+  outline-offset: -4px;
+}
+
+.ff-accordion-header::after {
+  content: "▼";
+  font-size: 0.8em;
+  transition: transform 0.3s;
+  opacity: 0.7;
+}
+
+.ff-accordion-item.active .ff-accordion-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.ff-accordion-item.active .ff-accordion-header::after {
+  transform: rotate(180deg);
+}
+
+.ff-accordion-body {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 320ms cubic-bezier(.2, .9, .3, 1), padding 320ms cubic-bezier(.2, .9, .3, 1);
+  background: rgba(0, 0, 0, 0.1);
+  /* Slight contrast for body */
+  width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+.ff-accordion-item.active .ff-accordion-body {
+  padding: 20px;
+  max-height: 1000px;
+  /* Increased max-height to be safe */
+}
+
+/* Small screens: tighten padding to avoid overflow */
+@media (max-width: 480px) {
+  .ff-accordion-header {
+    padding: 14px 16px;
+    font-size: 1rem;
+  }
+  .ff-accordion-item.active .ff-accordion-body {
+    padding: 12px 14px;
+  }
+}

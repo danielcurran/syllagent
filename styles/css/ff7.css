@@ -1,0 +1,343 @@
+/* FF7 Theme Variables & Tokens */
+.theme-ff7 {
+    /* Colors */
+    --ff7-win-top: #001850;
+    --ff7-win-bot: #003080;
+    --ff7-border-outer: #1A1A1A;
+    --ff7-border-inner: #303030;
+    --ff7-border-highlight: #E0E0E0;
+    --ff7-text-main: #FFFFFF;
+    --ff7-text-secondary: #C0C0C0;
+    --ff7-text-active: #78B0FF;
+    --ff7-warning-red: #FF3030;
+    --ff7-slider-track: #707070;
+    --ff7-slider-knob: #D0D0D0;
+
+    /* Global Overrides */
+    --window-border-radius: 3px;
+    --content-bg-gradient: linear-gradient(to bottom, var(--ff7-win-top) 0%, var(--ff7-win-bot) 100%);
+    --highlight-color: var(--ff7-text-active);
+    --font-family: "Press Start 2P", "Pixel Operator", monospace;
+}
+
+
+
+/* Prefer Reactor7 for this theme when available */
+.theme-ff7 {
+    --font-family: "Press Start 2P", "Pixel Operator", monospace;
+}
+
+/* --- Window Component --- */
+.theme-ff7 .ff-window {
+    border-radius: var(--window-border-radius);
+    padding: 2px;
+    background: transparent;
+    /* Tighter bevel: thin outer dark, thin inner light, subtle inner recess */
+    border: 1px solid var(--ff7-border-outer);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        /* inner light line */
+        inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+        /* inner dark line */
+        2px 2px 0 rgba(0, 0, 16, 0.6);
+    /* small drop */
+    margin: 4px;
+}
+
+.theme-ff7 .ff-window-content {
+    background: var(--content-bg-gradient);
+    border-radius: 1px;
+    padding: 12px;
+    color: var(--ff7-text-main);
+    font-family: var(--font-family);
+    letter-spacing: 0.5px;
+    text-shadow: none;
+    /* No shadow per spec */
+    image-rendering: pixelated;
+}
+
+/* --- Typography --- */
+.theme-ff7 h1,
+.theme-ff7 h2,
+.theme-ff7 h3,
+.theme-ff7 h4,
+.theme-ff7 .ff-card-header,
+.theme-ff7 label {
+    color: var(--ff7-text-active);
+    /* Cyan/Blue for headers */
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 #000;
+    /* Slight shadow for headers only for readability */
+    /* font-size intentionally inherited to preserve visual hierarchy */
+    letter-spacing: 1px;
+}
+
+.theme-ff7 p,
+.theme-ff7 span,
+.theme-ff7 div {
+    color: var(--ff7-text-main);
+}
+
+.theme-ff7 .text-secondary {
+    color: var(--ff7-text-secondary);
+}
+
+/* --- Cursor & List Items --- */
+.theme-ff7 .ff-nav-link,
+.theme-ff7 .ff-list-group-item,
+.theme-ff7 .ff-dropdown-item,
+.theme-ff7 .ff-page-link,
+.theme-ff7 .ff-btn {
+    position: relative;
+    transition: none;
+    border: 1px solid transparent;
+    color: var(--ff7-text-secondary);
+    cursor: default;
+    /* Reset cursor to prevent persistence */
+}
+
+/* Active/Hover State */
+.theme-ff7 .ff-nav-link:hover,
+.theme-ff7 .ff-nav-link.active,
+.theme-ff7 .ff-list-group-item:hover,
+.theme-ff7 .ff-list-group-item.active,
+.theme-ff7 .ff-dropdown-item:hover,
+.theme-ff7 .ff-page-link:hover,
+.theme-ff7 .ff-page-link.active,
+.theme-ff7 .ff-btn:not(:disabled):hover {
+    background: linear-gradient(to right, #004080, #0050A0);
+    color: var(--ff7-text-main);
+    border-radius: 2px;
+    padding-left: 45px !important;
+    /* Increased spacing to prevent text occlusion */
+    text-shadow: none;
+    cursor: default;
+}
+
+/* The Finger Cursor: only show for hovered item or an explicitly focused item */
+.theme-ff7 .ff-nav-link::before,
+.theme-ff7 .ff-list-group-item::before,
+.theme-ff7 .ff-dropdown-item::before,
+.theme-ff7 .ff-page-link::before,
+.theme-ff7 .ff-btn::before {
+    /* Default: hidden unless hovered or focused via JS */
+    content: none;
+    display: none;
+}
+
+.theme-ff7 .ff-nav-link:hover::before,
+.theme-ff7 .ff-list-group-item:hover::before,
+.theme-ff7 .ff-dropdown-item:hover::before,
+.theme-ff7 .ff-page-link:hover::before,
+.theme-ff7 .ff-btn:not(:disabled):hover::before,
+.theme-ff7 .ff-cursor-focused::before {
+    content: "☛";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4em;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 0 #000;
+    animation: ff7-cursor-bob 0.8s infinite alternate;
+    display: block;
+}
+
+@keyframes ff7-cursor-bob {
+    0% {
+        transform: translateY(-50%) translateX(0);
+    }
+
+    100% {
+        transform: translateY(-50%) translateX(4px);
+    }
+}
+
+/* --- Sliders (Authentic Config Style) --- */
+.theme-ff7 input[type=range].ff-range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    background: transparent;
+    height: 18px;
+    /* allow room for thumb visual across browsers */
+}
+
+.theme-ff7 input[type=range].ff-range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: linear-gradient(to bottom, #5a5a5a, #4a4a4a);
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.theme-ff7 input[type=range].ff-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 12px;
+    width: 12px;
+    /* square-ish knob */
+    background: linear-gradient(to bottom, #FFFFFF, #D8D8D8);
+    border: 1px solid #888;
+    /* darker edge for pixel bevel */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 1px 0 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    margin-top: -2px;
+    /* center over 8px track */
+}
+
+/* Firefox */
+.theme-ff7 input[type=range].ff-range::-moz-range-track {
+    height: 8px;
+    background: linear-gradient(to bottom, #5a5a5a, #4a4a4a);
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.theme-ff7 input[type=range].ff-range::-moz-range-thumb {
+    height: 12px;
+    width: 12px;
+    background: linear-gradient(to bottom, #FFFFFF, #D8D8D8);
+    border: 1px solid #888;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* IE/Edge (legacy) */
+.theme-ff7 input[type=range].ff-range::-ms-fill-lower,
+.theme-ff7 input[type=range].ff-range::-ms-fill-upper {
+    background: linear-gradient(to bottom, #5a5a5a, #4a4a4a);
+    border: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+.theme-ff7 input[type=range].ff-range:focus {
+    outline: none;
+}
+
+/* --- Inputs & Forms --- */
+.theme-ff7 .ff-input,
+.theme-ff7 .ff-select,
+.theme-ff7 .ff-textarea {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #555;
+    color: var(--ff7-text-main);
+    font-family: var(--font-family);
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.theme-ff7 .ff-input:focus,
+.theme-ff7 .ff-select:focus,
+.theme-ff7 .ff-textarea:focus {
+    border-color: var(--ff7-text-active);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* --- Warning Dialog --- */
+.theme-ff7 .ff-alert {
+    background: linear-gradient(to bottom, #800000, #400000);
+    /* Red gradient for alerts */
+    border: 1px solid #FF0000;
+    box-shadow: 0 0 0 1px #FFF, 0 0 0 2px #500000;
+    color: #FFF;
+}
+
+/* --- Mini Panels (Time, Gil) --- */
+.theme-ff7 .ff-card {
+    border: 1px solid #444;
+    box-shadow: inset 1px 1px 0 #000, 1px 1px 0 #FFF;
+    /* Mini bevel */
+    background: rgba(0, 0, 0, 0.2);
+    padding: 8px;
+}
+
+.theme-ff7 .ff-card-header {
+    border-bottom: none;
+    margin-bottom: 5px;
+    color: var(--ff7-text-active);
+}
+
+/* --- Navbar Override --- */
+.theme-ff7 .ff-navbar {
+    background: linear-gradient(to bottom, #002040, #001020);
+    border-bottom: 1px solid #555;
+}
+
+/* Fix: align in-theme nav flush with window content (neutralize content padding) */
+.theme-ff7 .ff-nav {
+    margin-left: -12px;
+    padding-left: 0;
+}
+
+/* --- Table Override --- */
+.theme-ff7 .ff-table th {
+    color: var(--ff7-text-active);
+    border-bottom: 1px solid #555;
+}
+
+.theme-ff7 .ff-table td {
+    color: var(--ff7-text-main);
+}
+
+.theme-ff7 .ff-table-striped tbody tr:nth-of-type(odd) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* --- Popover Styling (FF7 theme) --- */
+.theme-ff7 .ff-popover {
+    /* Use opacity/transform transitions for smooth popover animation.
+       Positioning is applied by JS inline styles so we avoid hard-coding left/top here. */
+    position: absolute !important;
+    z-index: 2000 !important;
+    left: 0 !important;
+    top: 0 !important;
+    margin: 0 !important;
+    opacity: 0;
+    /* start hidden */
+    transform: translateY(-6px) scale(0.995);
+    transition: opacity 220ms cubic-bezier(.2, .9, .3, 1), transform 220ms cubic-bezier(.2, .9, .3, 1);
+    pointer-events: none;
+}
+
+.theme-ff7 .ff-popover.show {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+    pointer-events: auto !important;
+}
+
+/* --- Materia Slots (Preserved) --- */
+.theme-ff7 .ff-materia-slots {
+    background: #2a2a2a;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.8), 1px 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid #111;
+    border-radius: 20px;
+}
+
+.theme-ff7 .ff-materia-slot {
+    background: #111;
+    border: 1px solid #444;
+    box-shadow: inset 1px 1px 3px #000;
+}
+
+.theme-ff7 .ff-materia-slots.linked::after {
+    background: #555;
+    height: 4px;
+    border: 1px solid #333;
+    box-shadow: inset 0 1px 1px #000;
+}
+
+/* Tabs color overrides for better legibility on FF7 background */
+.theme-ff7 .ff-tab {
+    color: var(--ff7-text-active);
+}
+
+.theme-ff7 .ff-tab[aria-selected="true"],
+.theme-ff7 .ff-tab.active {
+    color: var(--ff7-text-main);
+}
+
+.theme-ff7,
+.showcase-area,
+.container {
+    z-index: auto !important;
+    transform: none !important;
+}

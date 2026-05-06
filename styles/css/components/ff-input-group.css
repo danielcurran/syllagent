@@ -1,0 +1,57 @@
+/* --- Input Groups --- */
+.ff-input-group {
+  /* Mobile: Stack vertically by default */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.ff-input-group-text {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: inherit;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.ff-input-group input,
+.ff-input-group select,
+.ff-input-group textarea {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Desktop: Horizontal layout */
+@media (min-width: 577px) {
+  .ff-input-group {
+    flex-direction: row;
+  }
+
+  .ff-input-group.ff-responsive {
+    flex-direction: column;
+  }
+}
+
+/* Input prepend/append */
+.ff-input-group-prepend,
+.ff-input-group-append {
+  display: flex;
+}
+
+.ff-input-group-prepend+input,
+.ff-input-group-prepend+select {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.ff-input-group-append {
+  margin-left: -1px;
+}
+
+input+.ff-input-group-append,
+select+.ff-input-group-append {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
