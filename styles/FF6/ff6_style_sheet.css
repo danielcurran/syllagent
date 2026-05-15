@@ -89,12 +89,17 @@ h1,h2,h3,h4,h5{
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 20px;
+  padding: 40px 20px;
   text-align: center;
+  gap: 40px;
+}
+
+.coming-soon-image {
+  margin: 0;
 }
 
 .coming-soon-header {
-  margin-bottom: 60px;
+  margin-bottom: 0;
 }
 
 .coming-soon-header h1 {
@@ -116,6 +121,9 @@ h1,h2,h3,h4,h5{
   border: 3px solid #edd758;
   padding: 40px 60px;
   background: linear-gradient(to bottom, #6c70a6, #040136);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .coming-soon-text {
