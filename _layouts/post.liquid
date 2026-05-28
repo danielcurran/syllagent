@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<div class="post-content">
+    <a href="/" class="back-link">&larr; Back to Home</a>
+    <h1>{{ title }}</h1>
+    <div class="post-meta">
+        <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | readableDate }}</time>
+    </div>
+    <article>
+        {{ content }}
+    </article>
+</div>

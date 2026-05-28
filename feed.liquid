@@ -1,0 +1,29 @@
+---
+layout: null
+permalink: /feed.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>syllagent</title>
+    <link>{{ site.url }}</link>
+    <description>Writing, research, and reflections on teaching agents, LLMs, and everything AI.</description>
+    <language>en</language>
+    {% assign newestPost = collections.post | reverse | first %}
+    <lastBuildDate>{{ newestPost.date | rssDate }}</lastBuildDate>
+    <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml"/>
+    {% for post in collections.post | reverse %}
+    <item>
+      <title>{{ post.data.title }}</title>
+      <link>{{ site.url }}{{ post.url }}</link>
+      <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+      <description>{{ post.data.description }}</description>
+      <pubDate>{{ post.date | rssDate }}</pubDate>
+      <content:encoded><![CDATA[{{ post.templateContent }}]]></content:encoded>
+      {% for tag in post.data.tags %}{% if tag != "post" %}
+      <category>{{ tag }}</category>
+      {% endif %}{% endfor %}
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

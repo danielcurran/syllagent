@@ -1,0 +1,35 @@
+---
+layout: default
+eleventyComputed:
+  title: "Tag: {{ tag }}"
+permalink: /tags/{{ tag | slug }}/
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter: ["post", "tagList", "all"]
+  addAllPagesToCollections: true
+---
+
+<div class="post-content">
+    <a href="/archive/" class="back-link">&larr; Back to Archive</a>
+    <h1 style="margin-bottom: 10px;">Tag: {{ tag }}</h1>
+    <p style="color: var(--light-purple); margin-bottom: 30px; padding-bottom: 20px; border-bottom: 3px solid var(--accent);">
+        {{ collections[tag] | size }} post{% if collections[tag].size != 1 %}s{% endif %}
+    </p>
+
+    <ul style="list-style: none; padding: 0;">
+    {% assign taggedPosts = collections[tag] | reverse %}
+    {% for post in taggedPosts %}
+        <li style="margin-bottom: 15px; padding: 15px; border-bottom: 2px solid var(--accent);">
+            <a href="{{ post.url }}" style="color: var(--accent); font-size: 1.1rem; font-weight: 600;">{{ post.data.title }}</a>
+            <br>
+            <time datetime="{{ post.date | date: '%Y-%m-%d' }}" style="color: var(--light-purple); font-size: 0.9rem;">{{ post.date | readableDate }}</time>
+            <br>
+            <span style="color: var(--light-purple); font-size: 0.85rem;">
+                {{ post.data.description }}
+            </span>
+        </li>
+    {% endfor %}
+    </ul>
+</div>

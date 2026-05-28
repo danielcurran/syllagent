@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - syllagent</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="description" content="{{ description | default: 'Writing, research, and reflections on teaching agents, LLMs, and everything AI.' }}">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>syllagent</h1>
+        <p class="tagline">Writing, research, and reflections on teaching agents, LLMs, and everything AI.</p>
+    </header>
+
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="container">
+            <a href="/" class="nav-link" {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a>
+            <a href="/about/" class="nav-link" {% if page.url contains '/about/' %}aria-current="page"{% endif %}>About</a>
+            <a href="/archive/" class="nav-link" {% if page.url contains '/archive/' %}aria-current="page"{% endif %}>Archive</a>
+            <a href="/feed.xml" class="nav-link" style="margin-left: auto;" title="RSS Feed">RSS</a>
+        </div>
+    </nav>
+
+    <main id="main-content" class="container">
+        {{ content }}
+    </main>
+
+    <footer>
+        <p>&copy; {{ "now" | date: "%Y" }} syllagent. Powered by Final Fantasy CSS.</p>
+        <p style="margin-top: 8px;"><a href="/feed.xml" style="color: var(--accent); text-decoration: underline; font-size: 0.9rem;">Subscribe via RSS</a></p>
+    </footer>
+</body>
+</html>
