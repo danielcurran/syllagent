@@ -1,0 +1,95 @@
+remote_theme: daviddarnes/alembic
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-archives
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# 3. Gem settings
+paginate: 5
+paginate_path: blog/page:num
+
+# 4. Jekyll settings
+sass:
+  style: compressed
+permalink: /posts/:title/
+timezone: Europe/London
+
+# 5. Collections
+collections:
+  posts:
+    title: Blog
+    output: true
+    description: "Writing, research, and reflections on teaching agents, LLMs, and everything AI."
+
+# 6. Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/default-social.png
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+
+# 7. Site settings
+encoding: utf-8
+lang: en-GB
+title: "syllagent"
+description: "Writing, research, and reflections on teaching agents, LLMs, and everything AI."
+url: "https://syllagent.github.io"
+baseurl: ""
+email: "daniel@syllagent.com"
+
+# 8. Navigation
+navigation_header:
+  - title: Home
+    url: /
+  - title: Blog
+    url: /blog/
+  - title: About
+    url: /about/
+  - title: Archive
+    url: /archive/
+  - title: RSS
+    url: /feed.xml
+
+navigation_footer:
+  - title: Powered by Alembic
+    url: https://alembic.darn.es
+
+social_links:
+  RSS: /feed.xml
+
+# 9. Fonts
+fonts:
+  font_urls:
+    - https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap
+
+# 10. Archives
+jekyll-archives:
+  enabled: [tags]
+  layouts:
+    tag: tag-page
+  permalinks:
+    tag: /tags/:name/
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .git
+  - .gitignore
+  - node_modules
+  - styles

@@ -4,7 +4,6 @@ title: "Hello, World — Welcome to syllagent"
 date: 2025-03-21
 description: "Getting started with this blog about AI agents, LLMs, and education."
 tags: ["post", "announcement"]
-permalink: "/posts/hello-world/"
 ---
 
 This is the first post on syllagent. I'm building this space to share writing, research, and reflections on teaching in the age of artificial intelligence.

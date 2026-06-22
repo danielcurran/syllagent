@@ -16,6 +16,10 @@ package-lock.json
 dist/
 build/
 _site/
+.sass-cache/
+
+# Jekyll
+vendor/
 
 # wrangler files
 .wrangler
