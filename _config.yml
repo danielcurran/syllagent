@@ -1,29 +1,53 @@
-remote_theme: daviddarnes/alembic
+remote_theme: mmistakes/so-simple-theme
 
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
-  - jekyll-archives
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# 3. Gem settings
-paginate: 5
-paginate_path: blog/page:num
+# 3. Site settings
+locale: en-GB
+title: "syllagent"
+description: "Writing, research, and reflections on teaching agents, LLMs, and everything AI."
+url: "https://syllagent.com"
+baseurl: ""
+email: "daniel@syllagent.com"
+# logo: "/images/site-logo.png"
+
+date_format: "%B %-d, %Y"
+read_time: true
+words_per_minute: 200
+
+google_fonts:
+  - name: "Space Grotesk"
+    weights: "400,400i,500,600,700"
+
+# Search
+skin: "/assets/css/skins/custom.css"
+
+search_full_content: false
+
+# Taxonomy pages
+category_archive_path: "/categories/#"
+tag_archive_path: "/tags/#"
 
 # 4. Jekyll settings
-sass:
-  style: compressed
+paginate: 5
+paginate_path: /page:num/
+markdown: kramdown
 permalink: /posts/:title/
 timezone: Europe/London
+
+liquid:
+  error_mode: strict
 
 # 5. Collections
 collections:
   posts:
-    title: Blog
     output: true
-    description: "Writing, research, and reflections on teaching agents, LLMs, and everything AI."
+    permalink: /posts/:title/
 
 # 6. Defaults
 defaults:
@@ -32,58 +56,34 @@ defaults:
     values:
       image: /assets/default-social.png
   - scope:
-      path: ""
+      path: "_posts"
       type: posts
     values:
       layout: post
+      comments: false
+      share: true
   - scope:
       path: ""
       type: pages
     values:
       layout: page
 
-# 7. Site settings
-encoding: utf-8
-lang: en-GB
-title: "syllagent"
-description: "Writing, research, and reflections on teaching agents, LLMs, and everything AI."
-url: "https://syllagent.com"
-baseurl: ""
-email: "daniel@syllagent.com"
+# 7. Author
+author:
+  name: Daniel
+  picture: "/images/author.jpg"
+  links:
+    - title: RSS
+      url: /feed.xml
+      icon: fas fa-rss-square
 
-# 8. Navigation
-navigation_header:
-  - title: Home
-    url: /
-  - title: Blog
-    url: /blog/
-  - title: About
-    url: /about/
-  - title: Archive
-    url: /archive/
-  - title: RSS
+# 8. Footer
+footer_links:
+  - title: Feed
     url: /feed.xml
+    icon: fas fa-rss-square
 
-navigation_footer:
-  - title: Powered by Alembic
-    url: https://alembic.darn.es
-
-social_links:
-  RSS: /feed.xml
-
-# 9. Fonts
-fonts:
-  font_urls:
-    - https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap
-
-# 10. Archives
-jekyll-archives:
-  enabled: [tags]
-  layouts:
-    tag: tag-page
-  permalinks:
-    tag: /tags/:name/
-
+# 9. Exclude
 exclude:
   - README.md
   - Gemfile
@@ -92,4 +92,5 @@ exclude:
   - .git
   - .gitignore
   - node_modules
-  - styles
+  - styles/
+  - AGENTS.md

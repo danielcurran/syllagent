@@ -1,17 +1,7 @@
 ---
-layout: page
+layout: posts
 title: Archive
-permalink: /archive/
+permalink: /posts/
+entries_layout: list
 ---
 
-<ul class="list  list--posts">
-  {% for page in site.posts %}
-    <li class="item  item--post">
-      <article class="article  article--post  typeset">
-        <h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
-        {% include post-meta.html %}
-        {{ page.excerpt | markdownify | truncatewords: 30 }}
-      </article>
-    </li>
-  {% endfor %}
-</ul>

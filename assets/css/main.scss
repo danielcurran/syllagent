@@ -1,0 +1,129 @@
+---
+sitemap: false
+---
+
+@charset "utf-8";
+
+// ── Override So Simple Defaults ──────────────────────────────
+$background-color: #181820;
+$text-color: #ecedee;
+$accent-color: #7c9aff;
+$nav-color: #a0a0b0;
+$nav-background-color: #1e1e2a;
+$code-background-color: #1e1e2a;
+$border-color: #2c2c3e;
+
+$serif-font-family: "Space Grotesk", sans-serif;
+$sans-serif-font-family: "Space Grotesk", sans-serif;
+$monospace-font-family: Menlo, Consolas, Monaco, "Courier New", Courier, monospace;
+
+$base-font-family: $sans-serif-font-family;
+$headline-font-family: $sans-serif-font-family;
+$title-font-family: $sans-serif-font-family;
+$description-font-family: $sans-serif-font-family;
+$meta-font-family: $sans-serif-font-family;
+
+$page-title-weight: 700;
+$entry-title-weight: 600;
+
+$primary-color: #7c9aff;
+$success-color: #4caf50;
+$warning-color: #ff9800;
+$danger-color: #f44336;
+$info-color: #2196f3;
+
+// Syntax highlighting (dark)
+$base00: #1e1e2a;
+$base01: #262633;
+$base02: #2c2c3e;
+$base03: #3a3a4e;
+$base04: #a0a0b0;
+$base05: #ecedee;
+$base06: #ecedee;
+$base07: #ffffff;
+$base08: #f07178;
+$base09: #f78c6c;
+$base0a: #ffcb6b;
+$base0b: #c3e88d;
+$base0c: #89ddff;
+$base0d: #82aaff;
+$base0e: #c792ea;
+$base0f: #ff5370;
+
+// ── Import Theme ───────────────────────────────────────────
+@import "so-simple";
+
+// ── Custom Overrides ───────────────────────────────────────
+
+// Background texture
+body {
+  background: #181820;
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("/images/FFBG.png") center/cover no-repeat;
+    opacity: 0.06;
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+.masthead,
+.page-wrapper,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.masthead {
+  border-bottom: 1px solid #2c2c3e;
+  background: #1e1e2a;
+  padding-bottom: 1em;
+  margin-bottom: 2em;
+}
+
+.site-footer {
+  border-top-color: #2c2c3e;
+  background: #1e1e2a;
+  color: #a0a0b0;
+}
+
+.site-nav {
+  a {
+    color: #a0a0b0;
+    border-color: #2c2c3e;
+    &:hover {
+      color: #ecedee;
+      border-color: #a0a0b0;
+    }
+  }
+}
+
+#menu-toggle {
+  color: #a0a0b0;
+  background-color: #1e1e2a;
+}
+
+.pagination {
+  a {
+    border-color: #2c2c3e;
+    color: #a0a0b0;
+    &:hover {
+      background: #262633;
+    }
+  }
+}
+
+.page-taxonomies-title {
+  color: #a0a0b0;
+}
+
+.entry-title {
+  font-style: normal;
+  letter-spacing: -0.5px;
+}
+
+.site-description {
+  font-style: normal;
+}
