@@ -1,0 +1,13 @@
+# Theme text
+en-GB:
+  search:
+    placeholder: "Search the blog..."
+    results: "Search results for"
+  pagination:
+    previous: "Previous"
+    next: "Next"
+    page: "Page"
+  feed:
+    subscribe: "Subscribe via RSS"
+  breadcrumb_home_label: "Home"
+  breadcrumb_separator: "/"
