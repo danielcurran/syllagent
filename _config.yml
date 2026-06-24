@@ -40,9 +40,6 @@ markdown: kramdown
 permalink: /posts/:title/
 timezone: Europe/London
 
-liquid:
-  error_mode: strict
-
 # 5. Collections
 collections:
   posts:
