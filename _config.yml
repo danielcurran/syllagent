@@ -49,10 +49,6 @@ collections:
 # 6. Defaults
 defaults:
   - scope:
-      path: ""
-    values:
-      image: /assets/default-social.png
-  - scope:
       path: "_posts"
       type: posts
     values:
@@ -68,7 +64,6 @@ defaults:
 # 7. Author
 author:
   name: Daniel
-  picture: "/images/author.jpg"
   links:
     - title: RSS
       url: /feed.xml
@@ -90,4 +85,5 @@ exclude:
   - .gitignore
   - node_modules
   - styles/
+  - sources/
   - AGENTS.md

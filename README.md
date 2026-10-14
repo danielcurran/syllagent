@@ -2,7 +2,7 @@
 
 Writing, research, and reflections on teaching agents, LLMs, and everything AI.
 
-Built with [Jekyll](https://jekyllrb.com/) and the [Alembic](https://alembic.darn.es/) theme. Hosted on [GitHub Pages](https://pages.github.com/).
+Built with [Jekyll](https://jekyllrb.com/) and the [So Simple](https://github.com/mmistakes/so-simple-theme) theme. Hosted on [GitHub Pages](https://pages.github.com/).
 
 ## Development
 
