@@ -106,17 +106,3 @@ $base0f: #ff5370;
 .site-description {
   font-style: normal;
 }
-
-// Keep the header image a modest, centred size: slightly wider than the text
-// column, cropped to a landscape band. Adjust `object-position` to shift the crop.
-.page-image {
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.page-image img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  object-position: center;
-}

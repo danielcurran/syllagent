@@ -3,9 +3,6 @@ layout: post
 title: "What can the learner do?"
 date: 2026-10-15
 description: "Learning objectives are not a curriculum artifact. Written together, they are the common language that lets education move product adoption."
-image:
-  path: /images/cow-on-run.jpg
-  caption: "A cow I saw on a run recently."
 tags: ["instructional design", "learning objectives", "backwards design", "enablement"]
 ---
 
