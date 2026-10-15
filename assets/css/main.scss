@@ -106,3 +106,12 @@ $base0f: #ff5370;
 .site-description {
   font-style: normal;
 }
+
+// Crop the portrait header image to a landscape hero so it does not dominate
+// the page. Adjust `object-position` to shift the crop if the subject is off-centre.
+.page-image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+}
