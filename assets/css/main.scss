@@ -4,105 +4,155 @@ sitemap: false
 
 @charset "utf-8";
 
-// ── Override So Simple Defaults ──────────────────────────────
-$background-color: #181820;
-$text-color: #ecedee;
-$accent-color: #7c9aff;
-$nav-color: #a0a0b0;
-$nav-background-color: #1e1e2a;
-$code-background-color: #1e1e2a;
-$border-color: #2c2c3e;
+/* ============================================================
+   1. Autumnal palette + typography
+   ============================================================ */
 
-$serif-font-family: "Space Grotesk", sans-serif;
-$sans-serif-font-family: "Space Grotesk", sans-serif;
-$monospace-font-family: Menlo, Consolas, Monaco, "Courier New", Courier, monospace;
+// Typography
+$sans-serif-font-family: "Space Grotesk", "Avenir Next", sans-serif; // headings
+$serif-font-family: "Source Serif 4", Georgia, "Times New Roman", serif; // body
+$monospace-font-family: "SFMono-Regular", Menlo, Consolas, "Courier New", monospace;
 
-$base-font-family: $sans-serif-font-family;
+$base-font-family: $serif-font-family;
 $headline-font-family: $sans-serif-font-family;
 $title-font-family: $sans-serif-font-family;
-$description-font-family: $sans-serif-font-family;
+$description-font-family: $serif-font-family;
 $meta-font-family: $sans-serif-font-family;
 
 $page-title-weight: 700;
 $entry-title-weight: 600;
 
-$primary-color: #7c9aff;
-$success-color: #4caf50;
-$warning-color: #ff9800;
-$danger-color: #f44336;
-$info-color: #2196f3;
+// Colors
+$background-color: #F7F3EA;      // oatmeal
+$text-color: #2B2822;            // espresso
+$accent-color: #B4551D;          // burnt orange
+$nav-color: #6C6456;             // warm gray
+$nav-background-color: #F0EADD;  // deeper oatmeal
+$code-background-color: #F0EADD;
+$border-color: #E5DECC;          // hairline
 
-// Syntax highlighting (dark)
-$base00: #1e1e2a;
-$base01: #262633;
-$base02: #2c2c3e;
-$base03: #3a3a4e;
-$base04: #a0a0b0;
-$base05: #ecedee;
-$base06: #ecedee;
-$base07: #ffffff;
-$base08: #f07178;
-$base09: #f78c6c;
-$base0a: #ffcb6b;
-$base0b: #c3e88d;
-$base0c: #89ddff;
-$base0d: #82aaff;
-$base0e: #c792ea;
-$base0f: #ff5370;
+$primary-color: #B4551D;
+$success-color: #4C5D4A;
+$warning-color: #A8823E;
+$danger-color: #A83A2A;
+$info-color: #3E5C6E;
 
-// ── Import Theme ───────────────────────────────────────────
+// Syntax highlighting (Base16 light, autumnal)
+$base00: #F7F3EA;
+$base01: #EFE9DB;
+$base02: #E5DECC;
+$base03: #A99F8E;
+$base04: #8A8070;
+$base05: #3A342B;
+$base06: #2B2822;
+$base07: #1F1C17;
+$base08: #B4551D;
+$base09: #A8823E;
+$base0a: #B08A3E;
+$base0b: #4C5D4A;
+$base0c: #3E6B6B;
+$base0d: #3E5C6E;
+$base0e: #7A5C4A;
+$base0f: #8A6B3E;
+
+/* ============================================================
+   2. Import theme
+   ============================================================ */
 @import "so-simple";
 
-// ── Custom Overrides ───────────────────────────────────────
+/* ============================================================
+   3. Polish + typography overrides
+   ============================================================ */
 
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+}
+
+// Headings: sans, tighter tracking
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+}
+
+// Links: warm accent with a soft animated underline
+a {
+  color: $accent-color;
+  text-decoration: none;
+  background-image: linear-gradient($accent-color, $accent-color);
+  background-size: 0 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: color 0.2s ease, background-size 0.25s ease;
+}
+a:hover {
+  color: #9A4616;
+  background-size: 100% 1px;
+}
+
+// Masthead: generous warm panel with a clean hairline
 .masthead {
-  border-bottom: 1px solid #2c2c3e;
-  background: #1e1e2a;
-  padding-bottom: 1em;
-  margin-bottom: 2em;
+  background: $nav-background-color;
+  border-bottom: 1px solid $border-color;
+  padding: 2.75em 1em 2.25em;
+  margin-bottom: 3em;
 }
-
-.site-footer {
-  border-top-color: #2c2c3e;
-  background: #1e1e2a;
-  color: #a0a0b0;
+.site-title a {
+  color: $text-color;
+  transition: color 0.2s ease;
+  &:hover { color: $accent-color; }
 }
-
-.site-nav {
-  a {
-    color: #a0a0b0;
-    border-color: #2c2c3e;
-    &:hover {
-      color: #ecedee;
-      border-color: #a0a0b0;
-    }
-  }
-}
-
-#menu-toggle {
-  color: #a0a0b0;
-  background-color: #1e1e2a;
-}
-
-.pagination {
-  a {
-    border-color: #2c2c3e;
-    color: #a0a0b0;
-    &:hover {
-      background: #262633;
-    }
-  }
-}
-
-.page-taxonomies-title {
-  color: #a0a0b0;
-}
-
-.entry-title {
-  font-style: normal;
-  letter-spacing: -0.5px;
-}
-
 .site-description {
-  font-style: normal;
+  color: $nav-color;
+  font-style: italic;
+}
+
+// Navigation: uppercase micro-labels
+.site-nav a {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $nav-color;
+  border-color: $border-color;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  &:hover {
+    color: $accent-color;
+    border-color: $accent-color;
+  }
+}
+
+// Entry / page titles
+.entry-title a {
+  color: $text-color;
+  transition: color 0.2s ease;
+  &:hover { color: $accent-color; }
+}
+.page-title {
+  letter-spacing: -0.03em;
+}
+
+// Meta text
+.page-date, .read-time, .entry-date, .entry-meta {
+  color: $nav-color;
+}
+
+// Footer: quiet warm hairline
+.site-footer {
+  border-top: 1px solid $border-color;
+  color: $nav-color;
+  background: transparent;
+}
+
+// Buttons
+.btn {
+  background: $accent-color;
+  color: #FBF7EF;
+  transition: background-color 0.2s ease;
+  &:hover { background: #9A4616; }
+}
+
+// Text selection tint
+::selection {
+  background: rgba(180, 85, 29, 0.18);
 }

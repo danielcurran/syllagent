@@ -22,7 +22,9 @@ words_per_minute: 200
 
 google_fonts:
   - name: "Space Grotesk"
-    weights: "400,400i,500,600,700"
+    weights: "500,600,700"
+  - name: "Source Serif 4"
+    weights: "400,400i,600,600i"
 
 # Search
 skin: "/assets/css/skins/custom.css"
