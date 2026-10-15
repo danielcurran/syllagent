@@ -84,5 +84,4 @@ exclude:
   - .git
   - .gitignore
   - node_modules
-  - sources/
   - AGENTS.md
